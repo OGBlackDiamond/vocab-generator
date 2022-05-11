@@ -1,5 +1,5 @@
+from synnant import *
 from PyDictionary import PyDictionary
-from synonym import *
 dictionary = PyDictionary()
 
 raw_word = input()
@@ -26,15 +26,22 @@ def get_word_def(word):
 
     return noun + verb + adjective
 
-def get_syn_ant(word):
-    synonym = synonyms(word)
+def get_syn_ant(word, type = ""):
+    antstart = -1
+    words = synnant(word, type)
+    if "Antonyms" in words:
+        antstart = words.index("Antonyms")    
 
-    print(synonym + antonym)
+    return str(words[0: antstart])[1:-1] + "\n" + str(words[antstart:])[1:-1]
+        
+    
+    
+
     
     
 
 
 while True:
     if Word != "":
-        print()
+        print(get_syn_ant(Word))
         
