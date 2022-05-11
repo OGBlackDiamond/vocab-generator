@@ -19,4 +19,4 @@ def synnant(term, type):
         else:
             return synlist + antlist
     else:
-        return "That word does not exist in the API! \nCheck spelling and if it can be found at thesaurus.com!"
+        return "That word does not not have a synonym or antonym in the API! \nCheck spelling and if it can be found at thesaurus.com!"
