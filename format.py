@@ -47,12 +47,19 @@ def get_synant(wordslist):
         print("Prog: Getting Synonyms and Anytonyms for " + word)
         syns = synnant(word, 1)
         ants = synnant(word, 2)
-        if ("Synonym" in syns) or ("Antonym" in ants):
-            syns_list.append(syns)
+        if ("Antonym" in ants):
             ants_list.append(ants)
             print("Prog: Success!")
         else:
-            print("Prog: Synonyms or Antonyms for " + word + " failed!")
+            ants_list.append("-no_ants-")
+            print("Prog: Antonyms for " + word + " failed!")
+
+        if ("Synonym" in syns):
+            syns_list.append(syns)
+            print("Prog: Success!")
+        else:
+            syns_list.append("-no_syns-")
+            print("Prog: Synonyms for " + word + " failed!")
 
     return [syns_list, ants_list]
 
@@ -66,15 +73,8 @@ def format():
         for words in defs:
             count += 1
             output_file.writelines(["\n", wordList[count - 1].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count -1])[1:-1], "\n"])
-    
-    
-    
-
-
 
 while Finished != True:
     format()
-
-
 
 
