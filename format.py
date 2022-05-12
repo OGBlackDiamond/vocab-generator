@@ -1,6 +1,6 @@
 from dictionary import *
 from run import *
-
+print("Input words here!")
 
 Word = ""
 defs = ""
@@ -8,16 +8,7 @@ WordList = []
 Finished = False
 output_file = open("output.txt", "w")
 
-def get_defs(wordslist):
-    for word in wordslist:
-        print("Prog: Getting definitions for " + word)
-        defs = get_word_def(word)
-        if word not in defs:
-            print("Prog: Success!")
-        else:
-            print("Prog: Definitions for " + word + " failed!")
 
-        return defs
 
 
 def comp_word_list():
@@ -32,11 +23,49 @@ def comp_word_list():
 
     return WordList
 
+
+
+def get_defs(wordslist):
+    global defsList
+    defsList = []
+    for word in wordslist:
+        print("Prog: Getting definitions for " + word)
+        defs = get_word_def(word)
+        if word not in defs:
+            print("Prog: Success!")
+            defsList.append(defs)
+        else:
+            print("Prog: Definitions for " + word + " failed!")
+
+    return defsList
+
+
+def get_synant(wordslist):
+    syns_list = []
+    ants_list = []
+    for word in wordslist:
+        print("Prog: Getting Synonyms and Anytonyms for " + word)
+        syns = synnant(word, 1)
+        ants = synnant(word, 2)
+        if ("Synonym" in syns) or ("Antonym" in ants):
+            syns_list.append(syns)
+            ants_list.append(ants)
+            print("Prog: Success!")
+        else:
+            print("Prog: Synonyms or Antonyms for " + word + " failed!")
+
+    return [syns_list, ants_list]
+
+
 def format():
     wordList = comp_word_list()
-    if Finished != True:
+    if Finished == True:
         defs = get_defs(wordList)
-        output_file.writelines([defs, "\n"])
+        synsants = get_synant(wordList)
+        count = 0
+        for words in defs:
+            count += 1
+            output_file.writelines(["\n", wordList[count - 1].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count -1])[1:-1], "\n"])
     
     
     

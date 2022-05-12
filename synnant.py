@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def synnant(term, type):
+def synnant(term, type = 0):
     response = requests.get('https://www.thesaurus.com/browse/{}'.format(term))
     soup = BeautifulSoup(response.text, 'html.parser')
     soup.find('section', {'class': 'css-1ofzyv e1ccqdb60'})
@@ -12,11 +12,11 @@ def synnant(term, type):
     if synlist and antlist != []:
         synlist.insert(0, "Synonym")
         antlist.insert(0, "Antonym")
-        if type == "syn":
-            return synlist
-        elif type == "ant":
-            return antlist
+        if type == 1:
+            return synlist[:2]
+        elif type == 2:
+            return antlist[:2]
         else:
-            return synlist + antlist
+            return synlist[:2] + antlist[:2]
     else:
         return term + " does not not have a synonym or antonym in the API! \nCheck spelling and if it can be found at thesaurus.com!"
