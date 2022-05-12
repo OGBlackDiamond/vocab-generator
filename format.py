@@ -1,5 +1,6 @@
 from dictionary import *
 from run import *
+from usedinacentence import *
 print("Input words here!")
 
 Word = ""
@@ -57,15 +58,30 @@ def get_synant(wordslist):
     return [syns_list, ants_list]
 
 
+def get_usages(wordslist):
+    usageslist = []
+    for word in wordslist:
+        print("Prog: Getting usage in sentence for " + word)
+        use = usages(word)
+        if "Usage in a Sentence:" in use:
+            usageslist.append(use)
+            print("Prog: Success")
+        else:
+            print("Usages for " + word) + " failed!"
+    return usageslist
+
+
+
 def format():
     wordList = comp_word_list()
     if Finished == True:
         defs = get_defs(wordList)
         synsants = get_synant(wordList)
-        count = 0
+        uses = get_usages(wordList)
+        count = -1
         for words in defs:
             count += 1
-            output_file.writelines(["\n", wordList[count - 1].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count -1])[1:-1], "\n"])
+            output_file.writelines(["\n", wordList[count].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count])[1:-1], "\n", str(uses[count][0]), "\n", str(uses[count][1:2])[1:-1]])
     
     
     

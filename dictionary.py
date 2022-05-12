@@ -36,3 +36,4 @@ def get_syn_ant(word, type = ""):
         antstart = words.index("Antonyms")    
 
     return str(words[0: antstart])[1:-1] + "\n" + str(words[antstart:])[1:-1]
+
