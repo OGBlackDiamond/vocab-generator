@@ -1,6 +1,7 @@
 from dictionary import *
 from run import *
 from usedinacentence import *
+
 print("Input words here!")
 
 Word = ""
@@ -81,7 +82,7 @@ def format():
         count = -1
         for words in defs:
             count += 1
-            output_file.writelines(["\n", wordList[count].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count])[1:-1], "\n", str(uses[count][0]), "\n", str(uses[count][1:2])[1:-1]])
+            output_file.writelines(["\n", wordList[count].capitalize(), "\n", words, "\n", str(synsants[0][0])[1:-1], "\n", str(synsants[1][count])[1:-1], "\n \n", str(uses[count][0]), "\n", str(uses[count][1:2])[1:-1], "\n"])
     
     
     
@@ -90,7 +91,3 @@ def format():
 
 while Finished != True:
     format()
-
-
-
-

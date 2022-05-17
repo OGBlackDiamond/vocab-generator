@@ -5,13 +5,42 @@ Adjective:
 '
 'Synonym', 'solid '
 'Antonym', 'delicate '
+ 
 Usage in a Sentence:
-['a hard knot.']
+'a hard knot.'
+
 Soft
-Adjective: 
+Adjective:
 'yielding readily to pressure or weight', 'compassionate and kind; conciliatory'
 '
 'Synonym', 'solid '
 'Antonym', 'hard '
+ 
 Usage in a Sentence:
-['a soft pillow.']
+'a soft pillow.'
+
+Head
+Noun: 
+'the upper part of the human body or the front part of the body in animals; contains the face and brains', 'a single domestic animal'
+Verb: 
+'to go or travel towards', 'be in charge of'
+
+'Synonym', 'solid '
+'Antonym', 'auxiliary '
+ 
+Usage in a Sentence:
+'She has a good head for mathematics.'
+
+Degenerate
+Noun: 
+'a person whose behavior deviates from what is acceptable especially in sexual behavior'
+Verb: 
+'grow worse'
+Adjective: 
+'unrestrained by convention or morality'
+'
+'Synonym', 'solid '
+'Antonym', 'clean '
+ 
+Usage in a Sentence:
+'The morale of the soldiers degenerated, and they were unable to fight.'
